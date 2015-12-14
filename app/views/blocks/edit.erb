@@ -1,0 +1,17 @@
+<h1>Editing <%= @block.name %></h1>
+
+<%= form_for :block, url: mod_block_path(@mod, @block), method: :patch do |f| %>
+  <p>
+    <%= f.label :blockid %><br>
+    <%= f.text_field :blockid %>
+  </p>
+  
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

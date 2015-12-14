@@ -1,0 +1,17 @@
+<h1>New Item</h1>
+
+<%= form_for :item, url: mod_items_path do |f| %>
+  <p>
+    <%= f.label :itemid %><br>
+    <%= f.text_field :itemid %>
+  </p>
+  
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Editing <%= @item.name %></h1>
+
+<%= form_for :item, url: mod_item_path(@mod, @item), method: :patch do |f| %>
+  <p>
+    <%= f.label :itemid %><br>
+    <%= f.text_field :itemid %>
+  </p>
+  
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

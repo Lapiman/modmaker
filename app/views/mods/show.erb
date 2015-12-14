@@ -1,0 +1,73 @@
+<h1><%= @mod.name %></h1>
+
+<p><%= link_to 'DOWNLOAD', download_mod_path(@mod) %></p>
+
+<p>
+  <strong>Mod id:</strong>
+  <%= @mod.modid %>
+</p>
+
+<p>
+  <strong>Mod name:</strong>
+  <%= @mod.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mod.description %>
+</p>
+
+<p><%= link_to 'Edit mod metadata', edit_mod_path(@mod) %></p>
+
+<h2>Items</h2>
+
+<% if @mod.items.count == 0 %>
+	<p>No items yet :(</p>
+<% else %>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>
+			<th>
+		<tr>
+		
+		<% @mod.items.each do |item| %>
+			<tr>
+				<td><%= item.itemid %></td>
+				<td><%= item.name %></td>
+				<td><%= link_to 'Edit', edit_mod_item_path(@mod, item) %></td>
+				<td><%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<p><%= link_to 'New item', new_mod_item_path(@mod) %></p>
+
+<h2>Blocks</h2>
+
+<% if @mod.blocks.count == 0 %>
+	<p>No blocks yet :(</p>
+<% else %>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>
+			<th>
+		<tr>
+		
+		<% @mod.blocks.each do |block| %>
+			<tr>
+				<td><%= block.blockid %></td>
+				<td><%= block.name %></td>
+				<td><%= link_to 'Edit', edit_mod_block_path(@mod, block) %></td>
+				<td><%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<p><%= link_to 'New item', new_mod_block_path(@mod) %></p>
+

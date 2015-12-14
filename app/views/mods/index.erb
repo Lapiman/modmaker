@@ -1,0 +1,11 @@
+<h1>My mods</h1>
+
+<% @mods.each do |mod| %>
+	<p><%= link_to mod.name, mod_path(mod) %></p>
+<% end %>
+
+<%= link_to 'New mod', new_mod_path %>
+
+<p><%= Mod.column_names %></p>
+<p><%= Item.column_names %></p>
+<p><%= Block.column_names %></p>
