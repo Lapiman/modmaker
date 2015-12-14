@@ -11,7 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
-gem "paperclip", "~> 4.3"
-gem "fastimage"
-gem "rubyzip"
-gem "bcrypt"
+gem 'paperclip', '~> 4.3'
+gem 'fastimage'
+gem 'rubyzip'
+gem 'bcrypt'
+gem 'devise'
