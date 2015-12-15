@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214150544) do
+ActiveRecord::Schema.define(version: 20151214152536) do
 
   create_table "blocks", force: true do |t|
     t.string   "blockid"
@@ -33,12 +33,14 @@ ActiveRecord::Schema.define(version: 20151214150544) do
 
   create_table "mods", force: true do |t|
     t.string   "name"
-    t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "modid"
     t.string   "description"
+    t.integer  "user_id"
   end
+
+  add_index "mods", ["user_id"], name: "index_mods_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

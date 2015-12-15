@@ -7,6 +7,21 @@
 		<%= javascript_include_tag :all %>
 	</head>
 	<body>
+		<% if user_signed_in? %>
+			<p>You are logged in as <%= current_user.username %>. ᕕ( ᐛ )ᕗ</p>
+			<p><%= button_to "Log out", destroy_user_session_path, :method => 'delete' %></p>
+		<% else %>
+			<p>You are not logged in :(</p>
+			<p><%= link_to "Log in", new_user_session_path %></p>
+			<p><%= link_to "Register", new_user_registration_path %></p>
+		<% end %>
+		
+		<p><%= flash[:error] %></p>
+		<p><%= flash[:notice] %></p>
+		<p><%= flash[:alert] %></p>
+		
+		<hr>
+	
 		<%= yield %>
 	</body>
 </html>

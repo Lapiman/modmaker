@@ -1,7 +1,11 @@
 <h1>My mods</h1>
 
-<% @mods.each do |mod| %>
-	<p><%= link_to mod.name, mod_path(mod) %></p>
+<% if @mods.length == 0 %>
+	<p>No mods yet :(</p>
+<% else %>
+	<% @mods.each do |mod| %>
+		<p><%= link_to mod.name, mod_path(mod) %></p>
+	<% end %>
 <% end %>
 
 <%= link_to 'New mod', new_mod_path %>
