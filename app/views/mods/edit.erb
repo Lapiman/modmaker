@@ -2,7 +2,7 @@
 
 <%= form_for :mod, url: mod_path(@mod), method: :patch do |f| %>
   <p>
-    <%= f.label :modid %><br>
+    <%= f.label :modid, "Mod ID" %><br>
     <%= f.text_field :modid %>
   </p>
   
@@ -14,6 +14,16 @@
   <p>
     <%= f.label :description %><br>
     <%= f.text_field :description %>
+  </p>
+  
+  <p>
+    <%= f.label :version_number %><br>
+    <%= f.text_field :version_number %>
+  </p>
+  
+  <p>
+    <%= f.label :package_name %><br>
+    <%= f.text_field :package_name %>
   </p>
  
   <p>

@@ -1,16 +1,9 @@
+require 'erb'
+
 class Mod < ActiveRecord::Base
 	before_create :randomize_id
 	has_many :items, dependent: :destroy
 	has_many :blocks, dependent: :destroy
-	
-	def make_zip(z)
-		z.put_next_entry("qwerty.txt");
-		z.print self.as_file;
-	end
-	
-	def as_file
-		return self.name
-	end
 	
 	private
 	def randomize_id

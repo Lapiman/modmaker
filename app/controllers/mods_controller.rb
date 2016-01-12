@@ -23,10 +23,10 @@ class ModsController < ApplicationController
 		@mod = Mod.find(params[:id]);
 		@author = User.find(@mod.user_id);
 		
-		if @author != current_user
-			flash[:error] = "You're not authorized to view this mod."
-			redirect_to mods_path
-		end
+		#if @author != current_user
+		#	flash[:error] = "You're not authorized to view this mod."
+		#	redirect_to mods_path
+		#end
 	end
 	
 	def edit
@@ -52,7 +52,7 @@ class ModsController < ApplicationController
 		
 		t = Tempfile.new("mod-temp-asdf")
 		Zip::OutputStream.open(t.path) do |z|
-			mod.make_zip(z);
+			make_zip(z, mod);
 		end
 		
 		send_file t.path,
@@ -63,8 +63,36 @@ class ModsController < ApplicationController
 		t.close
 	end
 	
+	def make_zip(zip, mod)
+		@javafilepath = "src/main/java/" + mod.package_name.gsub(".", "/") + "/"
+		@mod = mod
+		@modclassname = mod.name.classify;
+		@clientproxyname = "ClientProxy";
+		@commonproxyname = "CommonProxy";
+		
+		@modfile_import_list = [
+			"net.minecraftforge.common.config.Configuration",
+			"net.minecraftforge.fml.common.event.FMLInitializationEvent",
+			"net.minecraftforge.fml.common.event.FMLPostInitializationEvent",
+			"net.minecraftforge.fml.common.event.FMLPreInitializationEvent",
+			"net.minecraftforge.fml.common.Mod",
+			"net.minecraftforge.fml.common.Mod.EventHandler",
+			"net.minecraftforge.fml.common.Mod.Instance",
+			"net.minecraftforge.fml.common.SidedProxy"
+		]
+		
+		zip.put_next_entry(@javafilepath + @modclassname + ".java");
+		zip.puts(render_to_string "java_modfile.java", :layout => false)
+		
+		zip.put_next_entry(@javafilepath + "client/ClientProxy.java");
+		zip.puts(render_to_string "java_clientproxy.java", :layout => false)
+		
+		zip.put_next_entry(@javafilepath + "CommonProxy.java");
+		zip.puts(render_to_string "java_commonproxy.java", :layout => false)
+	end
+	
 	private
 	  def mod_params
-		params.require(:mod).permit(:modid, :name, :description)
+		params.require(:mod).permit(:modid, :name, :description, :version_number, :package_name)
 	  end
 end

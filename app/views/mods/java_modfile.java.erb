@@ -1,0 +1,31 @@
+package <%= @mod.package_name %>;
+
+<% @modfile_import_list.each do |import| %>
+import <%= import %>;
+<% end %>
+
+@Mod(modid="<%= @mod.name %>", name="<%= @mod.name %>", version="1.0.0")
+public class <%= @modclassname %> {
+    @Instance("<%= @modclassname %>")
+	public <%= @modclassname %> <%= @modclassname.downcase %>;
+	
+    public Configuration config;
+
+    @SidedProxy(clientSide="<%= @mod.package_name + ".client." + @clientproxyname %>", serverSide="<%= @mod.package_name + "." + @commonproxyname %>")
+    public static CommonProxy proxy;
+	
+
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+    	this.config = new Configuration(event.getSuggestedConfigurationFile());
+    }
+
+    @EventHandler
+    public void load(FMLInitializationEvent event) {
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+    	
+    }
+}
