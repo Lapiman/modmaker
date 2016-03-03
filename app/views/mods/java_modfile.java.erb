@@ -13,7 +13,6 @@ public class <%= @modclassname %> {
 
     @SidedProxy(clientSide="<%= @mod.package_name + ".client." + @clientproxyname %>", serverSide="<%= @mod.package_name + "." + @commonproxyname %>")
     public static CommonProxy proxy;
-	
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
