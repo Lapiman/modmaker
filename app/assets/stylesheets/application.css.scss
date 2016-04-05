@@ -1,0 +1,149 @@
+@import "bootstrap.min.css";
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic);
+
+body {
+	font-family: Lato, sans-serif;
+}
+
+hr {
+	border: solid 1px #d2d2d2;
+}
+
+input[type="submit"] {
+	background-image: image-url("buttontexture.png");
+	outline: solid 2px black;
+	border-top: solid 2px #aaaaaa;
+	border-left: solid 2px #aaaaaa;
+	border-right: solid 2px #545454;
+	border-bottom: solid 4px #545454;
+	color: #dedede;
+	text-shadow: #333333 2px 2px;
+	padding: 10px;
+}
+
+input[type="submit"]:hover {
+	background-image: image-url("highlightedbuttontexture.png");
+	color: #ffffa1;
+	text-shadow: #3d3d27 2px 2px;
+	border-top: solid 2px #bfcaff;
+	border-left: solid 2px #bfcaff;
+	border-right: solid 2px #596399;
+	border-bottom: solid 4px #596399;
+}
+
+table {
+	background-color: #f5f5f5;
+	width: 100%;
+}
+
+th, td {
+	padding: 12px;
+}
+
+td.icons {
+	width: 1px; /* arbitrarily small */
+	white-space: nowrap;
+}
+
+table img {
+	height: 60px;
+}
+
+nav {
+	background-color: #444444;
+
+	height: 48px;
+	padding: 12px;
+	vertical-align: bottom;
+	color: white;
+}
+
+nav h1 {
+	float: left;
+	font-size: 1.5em;
+}
+
+nav p {
+	text-align: right;
+}
+
+nav a {
+	text-decoration: none;
+	color: inherit;
+}
+
+nav * {
+	margin: 0px;
+}
+
+.sidebar {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 0px;
+	border-right: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+	background-color: #f5f5f5;
+	background-image: url("stone.png");
+	z-index: 1000;
+}
+@media (min-width: 768px) {
+	.sidebar {
+		position: fixed;
+		top: 48px;
+		bottom: 0;
+		left: 0;
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border-right: 1px solid #e5e5e5;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+.sidebar ul {
+	margin: 0px;
+	list-style-type: none;
+	padding: 0px;
+}
+
+.sidebar ul li a {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #dedede;
+	text-shadow: #444444 1px 1px;
+	display: block;
+	width: 100%;
+	height: 48px;
+	line-height: 48px; /* this centers the text vertically */
+	padding-left: 15px;
+	padding-right: 15px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+	background-color: #f0f0f0;
+	color: #777777;
+	text-decoration: none;
+}
+
+main { /** weird selector to make the cascade happy **/
+	padding: 0px 24px;
+}
+
+main h1 {
+	font-size: 2em;
+	vertical-align: text-bottom;
+}
+
+hr {
+	clear: both;
+}
+
+.buttons {
+	margin: 0px;
+	padding: 0px;
+	float: right;
+}

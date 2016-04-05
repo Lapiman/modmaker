@@ -1,83 +1,97 @@
-<h1><%= @mod.name %> by <%= @author.username %></h1>
+<div id="mod-heading">
+	<h1><%= @mod.name %></h1>
+	<%= button_to 'DOWNLOAD', download_mod_path(@mod), method: :get %>
+</div>
 
-<p><%= link_to 'DOWNLOAD', download_mod_path(@mod) %></p>
+<div id="metadata">
+	<p>
+	  <strong>Mod id:</strong>
+	  <%= @mod.modid %>
+	</p>
 
-<p>
-  <strong>Mod id:</strong>
-  <%= @mod.modid %>
-</p>
+	<p>
+	  <strong>Mod name:</strong>
+	  <%= @mod.name %>
+	</p>
 
-<p>
-  <strong>Mod name:</strong>
-  <%= @mod.name %>
-</p>
+	<p>
+	  <strong>Description:</strong>
+	  <%= @mod.description %>
+	</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @mod.description %>
-</p>
+	<p>
+	  <strong>Version number:</strong>
+	  <%= @mod.version_number %>
+	</p>
 
-<p>
-  <strong>Mod version number:</strong>
-  <%= @mod.version_number %>
-</p>
+	<p>
+	  <strong>Package name:</strong>
+	  <%= @mod.package_name %>
+	</p>
 
-<p>
-  <strong>Mod package name:</strong>
-  <%= @mod.package_name %>
-</p>
+	<p><%= link_to 'Edit mod metadata', edit_mod_path(@mod) %></p>
+</div>
 
-<p><%= link_to 'Edit mod metadata', edit_mod_path(@mod) %></p>
+<!--       -->
 
-<h2>Items</h2>
+<div class="row">
+	<div class="col-md-6">
+		<div class="buttons">
+			<%= button_to 'New Item', new_mod_item_path(@mod), method: :get %>
+		</div>
+		<h2>Items</h2>
 
-<% if @mod.items.count == 0 %>
-	<p>No items yet :(</p>
-<% else %>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>
-			<th>
-		<tr>
-		
-		<% @mod.items.each do |item| %>
-			<tr>
-				<td><%= item.itemid %></td>
-				<td><%= item.name %></td>
-				<td><%= link_to 'Edit', edit_mod_item_path(@mod, item) %></td>
-				<td><%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %></td>
-			</tr>
+		<% if @mod.items.count == 0 %>
+			<p>No items yet :(</p>
+		<% else %>
+			<table>
+				<tr>
+					<th>
+					<th>ID</th>
+					<th>Name</th>
+				<tr>
+				
+				<% @mod.items.each do |item| %>
+					<tr>
+						<td class="icons">
+							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
+							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
+						</td>
+						<td><%= item.itemid %></td>
+						<td><%= item.name %></td>
+					</tr>
+				<% end %>
+			</table>
 		<% end %>
-	</table>
-<% end %>
+	</div>
 
-<p><%= link_to 'New item', new_mod_item_path(@mod) %></p>
+	<div class="col-md-6">
+		<div class="buttons">
+			<%= button_to 'New Block', new_mod_block_path(@mod), method: :get%>
+		</div>		
+		<h2>Blocks</h2>
 
-<h2>Blocks</h2>
-
-<% if @mod.blocks.count == 0 %>
-	<p>No blocks yet :(</p>
-<% else %>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>
-			<th>
-		<tr>
-		
-		<% @mod.blocks.each do |block| %>
-			<tr>
-				<td><%= block.blockid %></td>
-				<td><%= block.name %></td>
-				<td><%= link_to 'Edit', edit_mod_block_path(@mod, block) %></td>
-				<td><%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %></td>
-			</tr>
+		<% if @mod.blocks.count == 0 %>
+			<p>No blocks yet :(</p>
+		<% else %>
+			<table>
+				<tr>
+					<th>
+					<th>ID</th>
+					<th>Name</th>
+				<tr>
+				
+				<% @mod.blocks.each do |block| %>
+					<tr>
+						<td class="icons">
+							<%= link_to 'Edit', edit_mod_block_path(@mod, block) %>
+							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
+						</td>
+						<td><%= block.blockid %></td>
+						<td><%= block.name %></td>
+					</tr>
+				<% end %>
+			</table>
 		<% end %>
-	</table>
-<% end %>
-
-<p><%= link_to 'New item', new_mod_block_path(@mod) %></p>
-
+	</div>
+</div>
