@@ -1,38 +1,47 @@
 <div id="mod-heading">
+	<div class="buttons">
+		<%= button_to 'DOWNLOAD', download_mod_path(@mod), method: :get %>
+	</div>
 	<h1><%= @mod.name %></h1>
-	<%= button_to 'DOWNLOAD', download_mod_path(@mod), method: :get %>
 </div>
+
+<hr>
 
 <div id="metadata">
-	<p>
-	  <strong>Mod id:</strong>
-	  <%= @mod.modid %>
-	</p>
+	<div class="buttons">
+		<%= button_to 'Edit mod metadata', edit_mod_path(@mod), method: :get %>
+	</div>
+	<h2>Metadata</h2>
 
-	<p>
-	  <strong>Mod name:</strong>
-	  <%= @mod.name %>
-	</p>
+	<table>
+		<tr>
+		  <td>Mod id:</td>
+		  <td><%= @mod.modid %></td>
+		</tr>
 
-	<p>
-	  <strong>Description:</strong>
-	  <%= @mod.description %>
-	</p>
+		<tr>
+		  <td>Mod name:</td>
+		  <td><%= @mod.name %></td>
+		</tr>
 
-	<p>
-	  <strong>Version number:</strong>
-	  <%= @mod.version_number %>
-	</p>
+		<tr>
+		  <td>Description:</td>
+		  <td><%= @mod.description %></td>
+		</tr>
 
-	<p>
-	  <strong>Package name:</strong>
-	  <%= @mod.package_name %>
-	</p>
+		<tr>
+		  <td>Version number:</td>
+		  <td><%= @mod.version_number %></td>
+		</tr>
 
-	<p><%= link_to 'Edit mod metadata', edit_mod_path(@mod) %></p>
+		<tr>
+		  <td>Package name:</td>
+		  <td><%= @mod.package_name %></td>
+		</tr>
+	</table>
 </div>
 
-<!--       -->
+<hr>
 
 <div class="row">
 	<div class="col-md-6">

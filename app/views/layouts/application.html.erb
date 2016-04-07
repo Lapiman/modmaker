@@ -9,11 +9,11 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<nav id="navbar" class="row">
+			<nav class="row">
 				<h1>Modmaker</h1>
 
 				<% if user_signed_in? %>
-					<p><a href="#"><%= current_user.username %></a> | <%= link_to "Log out", destroy_user_session_path, :method => 'delete' %></p>
+					<p> <%= button_to "Log out", destroy_user_session_path, method: :delete %></p>
 				<% else %>
 					<p><%= link_to "Log in", new_user_session_path %> | <%= link_to "Register", new_user_registration_path %></p>
 				<% end %>

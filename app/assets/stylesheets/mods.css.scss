@@ -1,5 +1,5 @@
-#mod-heading h1 {
-	float: left;
+#mod-heading {
+	margin-bottom: 24px;
 }
 
 #mod-heading input {
@@ -8,7 +8,33 @@
 
 #metadata {
 	clear: both;
-	column-count: 4;
-	-webkit-column-count: 4;
-	-moz-column-count: 4;
+	margin-bottom: 24px;
+}
+
+.buttons {
+	margin: 0px 0px 24px 0px;
+	padding: 0px;
+	float: right;
+}
+
+table {
+	background-color: #f5f5f5;
+	width: 100%;
+}
+
+tr {
+	border-bottom: solid 1px #cccccc;
+}
+
+th, td {
+	padding: 12px;
+}
+
+td.icons {
+	width: 1px; /* arbitrarily small */
+	white-space: nowrap;
+}
+
+table img {
+	height: 60px;
 }

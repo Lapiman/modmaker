@@ -1,0 +1,171 @@
+@import url(bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,700italic,400italic);
+/* line 5, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+body {
+  font-family: Lato, sans-serif;
+}
+
+/* line 9, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+hr {
+  border: solid 1px #d2d2d2;
+}
+
+/* line 13, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+input[type="submit"] {
+  background-image: url(/assets/buttontexture.png);
+  outline: solid 2px black;
+  border-top: solid 2px #aaaaaa;
+  border-left: solid 2px #aaaaaa;
+  border-right: solid 2px #545454;
+  border-bottom: solid 4px #545454;
+  color: #dedede;
+  text-shadow: #333333 2px 2px;
+  padding: 10px;
+}
+
+/* line 25, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+input[type="submit"]:hover {
+  background-image: url(/assets/highlightedbuttontexture.png);
+  color: #ffffa1;
+  text-shadow: #3d3d27 2px 2px;
+  border-top: solid 2px #bfcaff;
+  border-left: solid 2px #bfcaff;
+  border-right: solid 2px #596399;
+  border-bottom: solid 4px #596399;
+}
+
+/* line 35, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+table {
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+/* line 40, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+th, td {
+  padding: 12px;
+}
+
+/* line 44, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+td.icons {
+  width: 1px;
+  /* arbitrarily small */
+  white-space: nowrap;
+}
+
+/* line 49, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+table img {
+  height: 60px;
+}
+
+/* line 53, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+nav {
+  background-color: #444444;
+  height: 48px;
+  padding: 12px;
+  vertical-align: bottom;
+  color: white;
+}
+
+/* line 62, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+nav h1 {
+  float: left;
+  font-size: 1.5em;
+}
+
+/* line 67, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+nav p {
+  text-align: right;
+}
+
+/* line 71, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 76, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+nav * {
+  margin: 0px;
+}
+
+/* line 80, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+.sidebar {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px;
+  border-right: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+  background-image: url("stone.png");
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  /* line 92, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+  .sidebar {
+    position: fixed;
+    top: 48px;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #e5e5e5;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+/* line 106, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+.sidebar ul {
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+}
+
+/* line 112, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+.sidebar ul li a {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #dedede;
+  text-shadow: #444444 1px 1px;
+  display: block;
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  /* this centers the text vertically */
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 126, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background-color: #f0f0f0;
+  color: #777777;
+  text-decoration: none;
+}
+
+/* line 132, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+main {
+  /** weird selector to make the cascade happy **/
+  padding: 0px 24px;
+}
+
+/* line 136, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+main h1 {
+  font-size: 2em;
+  vertical-align: text-bottom;
+}
+
+/* line 141, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+hr {
+  clear: both;
+}
+
+/* line 145, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/application.css.scss */
+.buttons {
+  margin: 0px;
+  padding: 0px;
+  float: right;
+}

@@ -8,7 +8,7 @@
 	<% end %>
 <% end %>
 
-<%= link_to 'New mod', new_mod_path %>
+<%= button_to 'New mod', new_mod_path, method: :get %>
 
 <p><%= Mod.column_names %></p>
 <p><%= Item.column_names %></p>

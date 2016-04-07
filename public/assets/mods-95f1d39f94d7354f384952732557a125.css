@@ -1,0 +1,17 @@
+/* line 1, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/mods.css.scss */
+#mod-heading h1 {
+  float: left;
+}
+
+/* line 5, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/mods.css.scss */
+#mod-heading input {
+  float: right;
+}
+
+/* line 9, C:/Users/2016zan/Desktop/modmaker/app/assets/stylesheets/mods.css.scss */
+#metadata {
+  clear: both;
+  column-count: 4;
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+}
