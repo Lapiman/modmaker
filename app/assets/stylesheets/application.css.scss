@@ -8,6 +8,7 @@ body {
 
 hr {
 	border: solid 1px #d2d2d2;
+	clear: both;
 }
 
 input[type="submit"] {
@@ -44,10 +45,9 @@ nav {
 nav h1 {
 	float: left;
 	font-size: 2.5em;
-	font-family: Minecraftia;
 }
 
-nav form {
+nav #right {
 	float: right;
 }
 
@@ -73,6 +73,14 @@ main h2 {
 	font-size: 1.5em;
 }
 
-hr {
-	clear: both;
+#flash {
+	position: fixed;
+	top: 12px;
+	width: 100%;
+}
+
+#flash > * {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }

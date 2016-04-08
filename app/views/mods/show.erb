@@ -51,7 +51,7 @@
 		<h2>Items</h2>
 
 		<% if @mod.items.count == 0 %>
-			<p>No items yet :(</p>
+			<p class="none">No items yet :(</p>
 		<% else %>
 			<table>
 				<tr>
@@ -64,7 +64,7 @@
 					<tr>
 						<td class="icons">
 							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
-							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
+							<%= button_to 'Delete', mod_item_path(@mod, item), method: :delete %>
 						</td>
 						<td><%= item.itemid %></td>
 						<td><%= item.name %></td>
@@ -81,7 +81,7 @@
 		<h2>Blocks</h2>
 
 		<% if @mod.blocks.count == 0 %>
-			<p>No blocks yet :(</p>
+			<p class="none">No blocks yet :(</p>
 		<% else %>
 			<table>
 				<tr>
@@ -94,7 +94,7 @@
 					<tr>
 						<td class="icons">
 							<%= link_to 'Edit', edit_mod_block_path(@mod, block) %>
-							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
+							<%= button_to 'Delete', mod_block_path(@mod, block), method: :delete %>
 						</td>
 						<td><%= block.blockid %></td>
 						<td><%= block.name %></td>

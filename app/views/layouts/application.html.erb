@@ -8,20 +8,28 @@
 		<%= stylesheet_link_tag params[:controller] %>
 	</head>
 	<body>
+		<div id="flash">
+			<% if flash[:error] != nil %>
+				<p class="alert alert-danger"><%= flash[:error] %></p>
+			<% end %>
+
+			<% if flash[:notice] != nil %>
+				<p class="alert alert-info"><%= flash[:notice] %></p>
+			<% end %>
+		</div>
+
 		<div class="container-fluid">
 			<nav class="row">
 				<h1>Modmaker</h1>
 
-				<% if user_signed_in? %>
-					<p> <%= button_to "Log out", destroy_user_session_path, method: :delete %></p>
-				<% else %>
-					<p><%= link_to "Log in", new_user_session_path %> | <%= link_to "Register", new_user_registration_path %></p>
-				<% end %>
+				<div id="right">
+					<% if user_signed_in? %>
+						<%= button_to "Log out", destroy_user_session_path, method: :delete %>
+					<% else %>
+						<%= button_to "Log in", new_user_session_path %> <%= button_to "Register", new_user_registration_path, method: :get %>
+					<% end %>
+				</div>
 			</nav>
-		
-			<p><%= flash[:error] %></p>
-			<p><%= flash[:notice] %></p>
-			<p><%= flash[:alert] %></p>
 			
 			<main>
 				<%= yield %>
