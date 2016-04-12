@@ -58,6 +58,8 @@
 					<th>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Max stack size</th>
+					<th>Creative tab</th>
 				<tr>
 				
 				<% @mod.items.each do |item| %>
@@ -68,6 +70,8 @@
 						</td>
 						<td><%= item.itemid %></td>
 						<td><%= item.name %></td>
+						<td><%= item.max_stack_size %></td>
+						<td><%= item.creative_tab %></td>
 					</tr>
 				<% end %>
 			</table>

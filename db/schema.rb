@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105165104) do
+ActiveRecord::Schema.define(version: 20160412144013) do
 
   create_table "blocks", force: true do |t|
     t.string   "blockid"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160105165104) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "mod_id"
+    t.integer  "max_stack_size"
+    t.string   "creative_tab"
   end
 
   create_table "mods", force: true do |t|

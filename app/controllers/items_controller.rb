@@ -41,6 +41,6 @@ class ItemsController < ApplicationController
 	
 	private
 	  def item_params
-		params.require(:item).permit(:itemid, :name)
+		params.require(:item).permit(:itemid, :name, :max_stack_size, :creative_tab)
 	  end
 end
