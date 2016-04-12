@@ -58,6 +58,7 @@ nav a {
 
 nav * {
 	margin: 0px;
+	display: inline;
 }
 
 main { /** weird selector to make the cascade happy **/
@@ -76,11 +77,5 @@ main h2 {
 #flash {
 	position: fixed;
 	top: 12px;
-	width: 100%;
-}
-
-#flash > * {
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
+	left: 50%;
 }
