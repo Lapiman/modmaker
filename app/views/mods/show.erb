@@ -1,6 +1,7 @@
 <div id="mod-heading">
 	<div class="buttons">
-		<%= button_to 'DOWNLOAD', download_mod_path(@mod), method: :get %>
+		<%= link_to 'DOWNLOAD', download_mod_path(@mod), method: :get, class: "button" %>
+		<%= link_to 'BACK', download_mod_path(@mod), method: :get, class: "button" %>
 	</div>
 	<h1><%= @mod.name %></h1>
 </div>
@@ -9,7 +10,7 @@
 
 <div id="metadata">
 	<div class="buttons">
-		<%= button_to 'Edit mod metadata', edit_mod_path(@mod), method: :get %>
+		<%= link_to 'Edit mod metadata', edit_mod_path(@mod), method: :get, class: "button" %>
 	</div>
 	<h2>Metadata</h2>
 
@@ -46,7 +47,7 @@
 <div class="row">
 	<div class="col-md-6">
 		<div class="buttons">
-			<%= button_to 'New Item', new_mod_item_path(@mod), method: :get %>
+			<%= link_to 'New Item', new_mod_item_path(@mod), method: :get, class: "button" %>
 		</div>
 		<h2>Items</h2>
 
@@ -64,9 +65,9 @@
 				
 				<% @mod.items.each do |item| %>
 					<tr>
-						<td class="icons">
+						<td class="controls">
 							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
-							<%= button_to 'Delete', mod_item_path(@mod, item), method: :delete %>
+							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
 						</td>
 						<td><%= item.itemid %></td>
 						<td><%= item.name %></td>
@@ -80,7 +81,7 @@
 
 	<div class="col-md-6">
 		<div class="buttons">
-			<%= button_to 'New Block', new_mod_block_path(@mod), method: :get%>
+			<%= link_to 'New Block', new_mod_block_path(@mod), method: :get, class: "button" %>
 		</div>		
 		<h2>Blocks</h2>
 
@@ -96,9 +97,9 @@
 				
 				<% @mod.blocks.each do |block| %>
 					<tr>
-						<td class="icons">
-							<%= link_to 'Edit', edit_mod_block_path(@mod, block) %>
-							<%= button_to 'Delete', mod_block_path(@mod, block), method: :delete %>
+						<td class="controls">
+							<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get, class: "button" %>
+							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
 						</td>
 						<td><%= block.blockid %></td>
 						<td><%= block.name %></td>

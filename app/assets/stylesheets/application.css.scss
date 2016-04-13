@@ -11,7 +11,7 @@ hr {
 	clear: both;
 }
 
-input[type="submit"] {
+input[type="submit"], a.button {
 	background-image: image-url("buttontexture.png");
 	outline: solid 2px black;
 	border-top: solid 2px #aaaaaa;
@@ -23,9 +23,10 @@ input[type="submit"] {
 	padding: 10px;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, a.button:hover, input[type="submit"]:focus, a.button:focus {
 	background-image: image-url("highlightedbuttontexture.png");
 	color: #ffffa1;
+	outline: solid 2px black;
 	text-shadow: #3d3d27 2px 2px;
 	border-top: solid 2px #bfcaff;
 	border-left: solid 2px #bfcaff;
