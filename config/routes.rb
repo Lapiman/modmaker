@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 		end
 	end
 
-	get '/' => "mods#index"
+	authenticated do
+		get '/' => "mods#index"
+	end
+
+	get '/' => "welcome#index"
 end
