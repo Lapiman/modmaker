@@ -93,16 +93,18 @@
 					<th>
 					<th>ID</th>
 					<th>Name</th>
+					<th>Harvest tool</th>
 				<tr>
 				
 				<% @mod.blocks.each do |block| %>
 					<tr>
 						<td class="controls">
-							<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get, class: "button" %>
+							<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get %>
 							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
 						</td>
 						<td><%= block.blockid %></td>
 						<td><%= block.name %></td>
+						<td><%= block.harvest_tool.humanize %></td>
 					</tr>
 				<% end %>
 			</table>

@@ -1,15 +1,14 @@
 class BlocksController < ApplicationController
 	def index
-		@blocks = Block.all;
+		@blocks = Block.all
 	end
 
 	def new
-		@block = Block.new;
-		@harvest_tools = Block.harvest_tools
+		@block = Block.new
 	end
 	
 	def create
-		@mod = Mod.find(params[:mod_id]);
+		@mod = Mod.find(params[:mod_id])
 		@block = @mod.blocks.create(block_params)
 		
 		redirect_to mod_path(@mod)
@@ -20,13 +19,14 @@ class BlocksController < ApplicationController
 	end
 	
 	def edit
-		@block = Block.find(params[:id]);
-		@mod = Mod.find(params[:mod_id]);
+		@block = Block.find(params[:id])
+		@mod = Mod.find(params[:mod_id])
 	end
 	
 	def update
-		@block = Block.find(params[:id]);
-		@mod = Mod.find(params[:mod_id]);
+		@block = Block.find(params[:id])
+		@mod = Mod.find(params[:mod_id])
+		@harvest_tools = Block.harvest_tools
 		
 		@block.update(block_params)
 		redirect_to mod_path(@mod)
@@ -34,7 +34,7 @@ class BlocksController < ApplicationController
 	
 	def destroy
 		@block = Block.find(params[:id])
-		@mod = Mod.find(params[:mod_id]);
+		@mod = Mod.find(params[:mod_id])
 		@block.destroy
 		
 		redirect_to mod_path(@mod)
@@ -42,6 +42,6 @@ class BlocksController < ApplicationController
 	
 	private
 	  def block_params
-		params.require(:block).permit(:blockid, :name)
+		params.require(:block).permit(:blockid, :name, :harvest_tool)
 	  end
 end

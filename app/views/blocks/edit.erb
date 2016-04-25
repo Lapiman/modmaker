@@ -10,6 +10,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+
+  <p>
+    <%= f.label :harvest_tool %><br>
+    <%= f.select :harvest_tool, Block.harvest_tools.keys.map {|x| [x.humanize, x]}, selected: @block.harvest_tool %>
+  </p>
  
   <p>
     <%= f.submit %>
