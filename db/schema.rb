@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412144013) do
+ActiveRecord::Schema.define(version: 20160419144454) do
 
   create_table "blocks", force: true do |t|
     t.string   "blockid"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20160412144013) do
     t.integer  "mod_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "max_stack_size"
+    t.integer  "creative_tab"
+    t.float    "hardness"
+    t.integer  "step_sound"
+    t.integer  "harvest_tool"
+    t.integer  "harvest_level"
+    t.integer  "material"
+    t.integer  "light_level"
   end
 
   add_index "blocks", ["mod_id"], name: "index_blocks_on_mod_id"

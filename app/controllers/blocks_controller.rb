@@ -5,6 +5,7 @@ class BlocksController < ApplicationController
 
 	def new
 		@block = Block.new;
+		@harvest_tools = Block.harvest_tools
 	end
 	
 	def create
