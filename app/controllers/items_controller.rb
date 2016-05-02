@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 	
 	def create
 		@mod = Mod.find(params[:mod_id])
-		@item = @mod.items.create(item_params)
+		@item = @mod.items.create!(item_params)
 		
 		redirect_to mod_path(@mod)
 	end
@@ -41,6 +41,6 @@ class ItemsController < ApplicationController
 	
 	private
 	  def item_params
-		params.require(:item).permit(:itemid, :name, :max_stack_size, :creative_tab)
+		params.require(:item).permit(:itemid, :name, :max_stack_size, :creative_tab, :texture)
 	  end
 end

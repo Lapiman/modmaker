@@ -57,6 +57,7 @@
 			<table>
 				<tr>
 					<th>
+					<th>Texture</th>
 					<th>ID</th>
 					<th>Name</th>
 					<th>Max stack size</th>
@@ -69,6 +70,7 @@
 							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
 							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
 						</td>
+						<td><%= image_tag item.texture.url %></td>
 						<td><%= item.itemid %></td>
 						<td><%= item.name %></td>
 						<td><%= item.max_stack_size %></td>

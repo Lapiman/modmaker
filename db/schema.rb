@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419144454) do
+ActiveRecord::Schema.define(version: 20160502143751) do
 
   create_table "blocks", force: true do |t|
     t.string   "blockid"
@@ -39,6 +39,10 @@ ActiveRecord::Schema.define(version: 20160419144454) do
     t.integer  "mod_id"
     t.integer  "max_stack_size"
     t.string   "creative_tab"
+    t.string   "texture_file_name"
+    t.string   "texture_content_type"
+    t.integer  "texture_file_size"
+    t.datetime "texture_updated_at"
   end
 
   create_table "mods", force: true do |t|
