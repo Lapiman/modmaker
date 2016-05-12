@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20160502143751) do
     t.string   "modid"
     t.string   "description"
     t.integer  "user_id"
-    t.string   "package_name"
     t.string   "version_number"
+    t.string   "package_name"
   end
 
   add_index "mods", ["user_id"], name: "index_mods_on_user_id"
