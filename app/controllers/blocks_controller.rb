@@ -42,6 +42,6 @@ class BlocksController < ApplicationController
 	
 	private
 	  def block_params
-		params.require(:block).permit(:blockid, :name, :harvest_tool)
+		params.require(:block).permit(:blockid, :name, :harvest_tool, :texture)
 	  end
 end

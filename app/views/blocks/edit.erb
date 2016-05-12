@@ -15,6 +15,12 @@
     <%= f.label :harvest_tool %><br>
     <%= f.select :harvest_tool, Block.harvest_tools.keys.map {|x| [x.humanize, x]}, selected: @block.harvest_tool %>
   </p>
+  
+  <p><strong>Current texture:</strong> <br> <%= image_tag @item.texture.url, :class => "texture" %></p>
+  <p>
+    <%= f.label :texture %><br>
+    <%= f.file_field :texture %>
+  </p>
  
   <p>
     <%= f.submit %>

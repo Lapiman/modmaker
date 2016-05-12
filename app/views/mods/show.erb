@@ -70,7 +70,7 @@
 							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
 							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
 						</td>
-						<td><%= image_tag item.texture.url %></td>
+						<td><%= image_tag item.texture.url, :class => "texture" %></td>
 						<td><%= item.itemid %></td>
 						<td><%= item.name %></td>
 						<td><%= item.max_stack_size %></td>
@@ -93,6 +93,7 @@
 			<table>
 				<tr>
 					<th>
+					<th>Texture</th>
 					<th>ID</th>
 					<th>Name</th>
 					<th>Harvest tool</th>
@@ -104,6 +105,7 @@
 							<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get %>
 							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
 						</td>
+						<td><%= image_tag block.texture.url, :class => "texture" %></td>
 						<td><%= block.blockid %></td>
 						<td><%= block.name %></td>
 						<td><%= block.harvest_tool.humanize %></td>

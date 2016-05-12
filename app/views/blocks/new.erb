@@ -16,6 +16,11 @@
     <%= f.label :harvest_tool %><br>
     <%= f.select :harvest_tool, Block.harvest_tools.keys.map {|x| [x.humanize, x]} %>
   </p>
+  
+  <p>
+    <%= f.label :texture %><br>
+    <%= f.file_field :texture %>
+  </p>
 
   <p>
     <%= f.submit %>

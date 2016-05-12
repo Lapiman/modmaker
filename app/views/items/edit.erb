@@ -1,4 +1,4 @@
-<h1>Editing <%= @item.name %></h1>
+<h1>Editing <%= :name %></h1>
 
 <%= form_for :item, url: mod_item_path(@mod, @item), method: :patch do |f| %>
   <p>
@@ -19,6 +19,12 @@
   <p>
     <%= f.label :creative_tab %><br>
     <%= f.text_field :creative_tab %>
+  </p>
+  
+  <p><strong>Current texture:</strong> <br> <%= image_tag @item.texture.url, :class => "texture" %></p>
+  <p>
+    <%= f.label :texture %><br>
+    <%= f.file_field :texture %>
   </p>
  
   <p>
