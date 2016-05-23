@@ -2,26 +2,60 @@
 
 <%= form_for :block, url: mod_block_path(@mod, @block), method: :patch do |f| %>
   <p>
-    <%= f.label :blockid %><br>
+    <%= f.label :blockid, "Block id" %><br>
     <%= f.text_field :blockid %>
   </p>
-  
+
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+  
+  <p>
+    <%= f.label :material %><br>
+    <%= f.select :material, Block.materials.keys.map {|x| [x.humanize, x]} %>
+  </p>
+  
+  <p>
+    <%= f.label :max_stack_size %><br>
+    <%= f.text_field :max_stack_size %>
+  </p>
+  
+  <p>
+    <%= f.label :hardness %><br>
+    <%= f.text_field :hardness %>
+  </p>
+  
+  <p>
+    <%= f.label :light_level %><br>
+    <%= f.text_field :light_level %>
+  </p>
+  
+  <p>
+    <%= f.label :step_sound %><br>
+    <%= f.select :step_sound, Block.step_sounds.keys.map {|x| [x.chomp("Sound").humanize, x]} %>
+  </p>
+  
+  <p>
+    <%= f.label :creative_tab %><br>
+    <%= f.select :creative_tab, Block.creative_tabs.keys.map {|x| [x.sub("tab", "").humanize, x]} %>
+  </p>
 
   <p>
     <%= f.label :harvest_tool %><br>
-    <%= f.select :harvest_tool, Block.harvest_tools.keys.map {|x| [x.humanize, x]}, selected: @block.harvest_tool %>
+    <%= f.select :harvest_tool, Block.harvest_tools.keys.map {|x| [x.humanize, x]} %>
   </p>
   
-  <p><strong>Current texture:</strong> <br> <%= image_tag @item.texture.url, :class => "texture" %></p>
+  <p>
+    <%= f.label :harvest_level %><br>
+    <%= f.text_field :harvest_level %>
+  </p>
+  
   <p>
     <%= f.label :texture %><br>
     <%= f.file_field :texture %>
   </p>
- 
+
   <p>
     <%= f.submit %>
   </p>

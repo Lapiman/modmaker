@@ -43,75 +43,85 @@
 </div>
 
 <hr>
+<div class="buttons">
+	<%= link_to 'New Item', new_mod_item_path(@mod), method: :get, class: "button" %>
+</div>
+<h2>Items</h2>
 
-<div class="row">
-	<div class="col-md-6">
-		<div class="buttons">
-			<%= link_to 'New Item', new_mod_item_path(@mod), method: :get, class: "button" %>
-		</div>
-		<h2>Items</h2>
-
-		<% if @mod.items.count == 0 %>
-			<p class="none">No items yet :(</p>
-		<% else %>
-			<table>
-				<tr>
-					<th>
-					<th>Texture</th>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Max stack size</th>
-					<th>Creative tab</th>
-				<tr>
-				
-				<% @mod.items.each do |item| %>
-					<tr>
-						<td class="controls">
-							<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
-							<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
-						</td>
-						<td><%= image_tag item.texture.url, :class => "texture" %></td>
-						<td><%= item.itemid %></td>
-						<td><%= item.name %></td>
-						<td><%= item.max_stack_size %></td>
-						<td><%= item.creative_tab %></td>
-					</tr>
-				<% end %>
-			</table>
+<% if @mod.items.count == 0 %>
+	<p class="none">No items yet :(</p>
+<% else %>
+	<table>
+		<tr>
+			<th>
+			<th>Texture</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Max stack size</th>
+			<th>Creative tab</th>
+		<tr>
+		
+		<% @mod.items.each do |item| %>
+			<tr>
+				<td class="controls">
+					<%= link_to 'Edit', edit_mod_item_path(@mod, item) %>
+					<%= link_to 'Delete', mod_item_path(@mod, item), method: :delete %>
+				</td>
+				<td><%= image_tag item.texture.url, :class => "texture" %></td>
+				<td><%= item.itemid %></td>
+				<td><%= item.name %></td>
+				<td><%= item.max_stack_size %></td>
+				<td><%= item.creative_tab %></td>
+			</tr>
 		<% end %>
-	</div>
+	</table>
+<% end %>
 
-	<div class="col-md-6">
-		<div class="buttons">
-			<%= link_to 'New Block', new_mod_block_path(@mod), method: :get, class: "button" %>
-		</div>		
-		<h2>Blocks</h2>
+<hr>
 
-		<% if @mod.blocks.count == 0 %>
-			<p class="none">No blocks yet :(</p>
-		<% else %>
-			<table>
-				<tr>
-					<th>
-					<th>Texture</th>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Harvest tool</th>
-				<tr>
-				
-				<% @mod.blocks.each do |block| %>
-					<tr>
-						<td class="controls">
-							<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get %>
-							<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
-						</td>
-						<td><%= image_tag block.texture.url, :class => "texture" %></td>
-						<td><%= block.blockid %></td>
-						<td><%= block.name %></td>
-						<td><%= block.harvest_tool.humanize %></td>
-					</tr>
-				<% end %>
-			</table>
+<div class="buttons">
+	<%= link_to 'New Block', new_mod_block_path(@mod), method: :get, class: "button" %>
+</div>		
+<h2>Blocks</h2>
+
+<% if @mod.blocks.count == 0 %>
+	<p class="none">No blocks yet :(</p>
+<% else %>
+	<table>
+		<tr>
+			<th>
+			<th>Texture</th>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Material</th>
+			<th>Max stack size</th>
+			<th>Hardness</th>
+			<th>Light level</th>
+			<th>Step sound</th>
+			<th>Creative tab</th>
+			<th>Harvest tool</th>
+			<th>Harvest level</th>
+		<tr>
+		
+		<% @mod.blocks.each do |block| %>
+			<tr>
+				<td class="controls">
+					<%= link_to 'Edit', edit_mod_block_path(@mod, block), method: :get %>
+					<%= link_to 'Delete', mod_block_path(@mod, block), method: :delete %>
+				</td>
+				<td><%= image_tag block.texture.url, :class => "texture" %></td>
+				<td><%= block.blockid %></td>
+				<td><%= block.name %></td>
+				<td><%= block.material %></td>
+				<td><%= block.max_stack_size %></td>
+				<td><%= block.hardness %></td>
+				<td><%= block.light_level %></td>
+				<td><%= block.step_sound.chomp("Sound").humanize %></td>
+				<td><%= block.creative_tab.sub("tab", "").humanize %></td>
+				<td><%= block.harvest_tool.humanize %></td>
+				<td><%= block.harvest_level %></td>
+			</tr>
 		<% end %>
-	</div>
+	</table>
+<% end %>
 </div>
